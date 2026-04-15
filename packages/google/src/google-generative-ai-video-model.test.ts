@@ -144,6 +144,12 @@ describe('GoogleGenerativeAIVideoModel', () => {
 
       expect(model.modelId).toBe('veo-3.1-generate');
     });
+
+    it('should support veo-3.1-lite-generate-preview model ID', () => {
+      const model = createMockModel({ modelId: 'veo-3.1-lite-generate-preview' });
+
+      expect(model.modelId).toBe('veo-3.1-lite-generate-preview');
+    });
   });
 
   describe('doGenerate', () => {

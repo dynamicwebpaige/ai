@@ -1329,3 +1329,35 @@ const { image } = await generateImage({
   2K, 4K via `providerOptions.google.imageConfig.imageSize`), and Google Search
   grounding.
 </Note>
+
+## Video Models
+
+You can create video models that call the Google Generative AI API using the `.video()` factory method.
+For more on video generation with the AI SDK see [experimental_generateVideo()](/docs/reference/ai-sdk-core/experimental-generate-video).
+
+### Veo Models
+
+[Veo](https://ai.google.dev/gemini-api/docs/models/veo-3.1-lite-generate-preview) models are dedicated video generation models.
+
+```ts
+import { google } from '@ai-sdk/google';
+import { experimental_generateVideo } from 'ai';
+
+const { video } = await experimental_generateVideo({
+  model: google.video('veo-3.1-generate-preview'),
+  prompt: 'A futuristic cityscape at sunset',
+  aspectRatio: '16:9',
+});
+```
+
+#### Veo Model Capabilities
+
+| Model | Aspect Ratios |
+| --- | --- |
+| `veo-3.1-generate-preview` | 16:9, 9:16, 21:9, 4:3, 1:1 |
+| `veo-3.1-lite-generate-preview` | 16:9, 9:16, 21:9, 4:3, 1:1 |
+
+<Note>
+  Veo models support image-to-video generation by passing an image in the `image` parameter.
+</Note>
+
